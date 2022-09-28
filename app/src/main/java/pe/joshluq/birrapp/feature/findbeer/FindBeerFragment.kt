@@ -31,18 +31,10 @@ class FindBeerFragment : BaseFragment<FragmentFindBeerBinding>() {
     }
 
     override fun setupObservables() = with(viewModel) {
-        isLoading.observe(
-            viewLifecycleOwner,
-            EventObserver.createObserver(::onLoading)
-        )
-        beerList.observe(
-            viewLifecycleOwner,
-            EventObserver.createObserver(::onBeerListLoaded)
-        )
-        isSearchFieldEmpty.observe(
-            viewLifecycleOwner,
-            EventObserver.createObserver(::onSearchFieldEmpty)
-        )
+        isLoading.observe(viewLifecycleOwner, EventObserver.create(::onLoading))
+        beerList.observe(viewLifecycleOwner, EventObserver.create(::onBeerListLoaded))
+        isSearchFieldEmpty.observe(viewLifecycleOwner, EventObserver.create(::onSearchFieldEmpty))
+        errorMessage.observe(viewLifecycleOwner, EventObserver.create(::onErrorMessage))
     }
 
     private fun onLoading(isLoading: Boolean) {
@@ -71,6 +63,13 @@ class FindBeerFragment : BaseFragment<FragmentFindBeerBinding>() {
 
     private fun onSearchFieldEmpty(isEmpty: Boolean) {
         if (isEmpty) adapter.submitList(emptyList())
+    }
+
+    private fun onErrorMessage(message: String) {
+        if (message.isEmpty()) return
+        val direction =
+            FindBeerFragmentDirections.actionGlobalToSimpleMessageDialog(message)
+        findNavController().navigate(direction)
     }
 
     private fun createItemDecorator() = DividerItemDecoration(

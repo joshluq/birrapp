@@ -18,10 +18,23 @@
         android:id="@+id/beerDetailFragment"
         android:name="pe.joshluq.birrapp.feature.beerdetail.BeerDetailFragment"
         android:label="BeerDetailFragment"
-        tools:layout="@layout/fragment_beer_detail" >
+        tools:layout="@layout/fragment_beer_detail">
         <argument
             android:name="beer"
             app:argType="pe.joshluq.birrapp.util.parcelmodel.ParcelBeer" />
     </fragment>
+
+    <dialog
+        android:id="@+id/simpleMessageDialog"
+        android:name="pe.joshluq.birrapp.util.dialog.SimpleMessageDialog"
+        android:label="SimpleMessageDialog"
+        tools:layout="@layout/dialog_simple_message">
+        <argument
+            android:name="message"
+            app:argType="string" />
+    </dialog>
+    <action
+        android:id="@+id/action_global_to_simpleMessageDialog"
+        app:destination="@id/simpleMessageDialog" />
 
 </navigation>

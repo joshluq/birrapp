@@ -10,6 +10,6 @@ class EventObserver<T> private constructor(
         event.getContentIfNotHandled(eventUnhandled::onEventUnHandled)
 
     companion object {
-        fun <T> createObserver(eventUnhandled: EventHandler<T>) = EventObserver(eventUnhandled)
+        fun <T> create(eventUnhandled: EventHandler<T>) = EventObserver(eventUnhandled)
     }
 }

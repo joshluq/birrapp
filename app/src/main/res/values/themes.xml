@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -28,4 +28,11 @@
         <!-- Required -->
         <item name="postSplashScreenTheme">@style/Theme.Birrapp</item>
     </style>
+
+    <!--Dialog-->
+    <style name="Theme.App.Dialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowMinWidthMajor">97%</item>
+        <item name="android:windowMinWidthMinor">97%</item>
+    </style>
+
 </resources>

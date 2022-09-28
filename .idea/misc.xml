@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/button_borderless.xml" value="0.303" />
+        <entry key="app/src/main/res/drawable/button_borderless_default.xml" value="0.303" />
+        <entry key="app/src/main/res/drawable/dialog_background.xml" value="0.227" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layout/dialog_simple_message.xml" value="0.1" />
         <entry key="app/src/main/res/layout/find_beer_fragment.xml" value="0.17552083333333332" />
         <entry key="app/src/main/res/layout/fragment_beer_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_find_beer.xml" value="0.165" />
