@@ -32,7 +32,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideApiService(client: OkHttpClient): ApiService = Retrofit.Builder()
-        .baseUrl("https://api.punkapi.com/v2")
+        .baseUrl("https://api.punkapi.com/v2/")
         .client(client)
         .addConverterFactory(JacksonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
