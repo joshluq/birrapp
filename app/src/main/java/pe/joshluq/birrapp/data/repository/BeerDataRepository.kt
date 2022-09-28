@@ -12,7 +12,7 @@ class BeerDataRepository @Inject constructor(
 ) : BeerRepository {
 
     override suspend fun findBeerByName(name: String): Result<List<Beer>> = handleResponse {
-        api.getBeersAsync(name)
+        api.getBeersAsync(name.replace(" ", "_"))
     }.map(::transformList)
 
 
