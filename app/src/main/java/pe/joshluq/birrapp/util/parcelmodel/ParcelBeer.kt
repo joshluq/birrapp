@@ -7,5 +7,7 @@ import kotlinx.parcelize.Parcelize
 class ParcelBeer(
     val id: Int,
     val name: String,
-    var description: String
+    val description: String,
+    val imageUrl: String,
+    val abv: Double,
 ) : Parcelable

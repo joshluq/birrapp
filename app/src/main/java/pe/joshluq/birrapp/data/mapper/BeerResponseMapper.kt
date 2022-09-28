@@ -8,6 +8,8 @@ fun transformList(list: List<BeerResponse>?): List<Beer> =
 
 private fun transform(response: BeerResponse) = Beer(
     id = response.id ?: throw IllegalArgumentException(),
-    name = response.name ?: "",
-    description = response.description ?: ""
+    name = response.name.orEmpty(),
+    description = response.description.orEmpty(),
+    imageUrl = response.imageUrl.orEmpty(),
+    abv = response.abv ?: 0.0
 )

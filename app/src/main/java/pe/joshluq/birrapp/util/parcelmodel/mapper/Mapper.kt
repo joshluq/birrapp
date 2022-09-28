@@ -7,4 +7,6 @@ fun Beer.toParcel() = ParcelBeer(
     id = id,
     name = name,
     description = description,
+    imageUrl = imageUrl,
+    abv = abv,
 )

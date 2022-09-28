@@ -10,15 +10,16 @@ class BeerResponseMapperKtTest {
     fun testTransformList() {
         // Assemble pre conditions
         val response = listOf(
-            BeerResponse(0, "foo", "bar")
+            BeerResponse(0, "foo", "bar", "foobar")
         )
 
         // Act
         val result = transformList(response)
 
         // Verify
-        TestCase.assertEquals(result[0].id, response[0].id)
-        TestCase.assertEquals(result[0].name, response[0].name)
-        TestCase.assertEquals(result[0].description, response[0].description)
+        TestCase.assertEquals(result.first().id, response.first().id)
+        TestCase.assertEquals(result.first().name, response.first().name)
+        TestCase.assertEquals(result.first().description, response.first().description)
+        TestCase.assertEquals(result.first().imageUrl, response.first().imageUrl)
     }
 }
