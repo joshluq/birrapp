@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">birrapp</string>
+
+    <string name="error_message">Hubo un error en la aplicación</string>
 </resources>

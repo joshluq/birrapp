@@ -4,15 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.newCoroutineContext
+import pe.joshluq.birrapp.R
 import pe.joshluq.birrapp.domain.ValidationResult
 import pe.joshluq.birrapp.domain.model.Beer
 import pe.joshluq.birrapp.domain.usecase.UseCase
 import pe.joshluq.birrapp.util.eventhandler.SingleEvent
 import pe.joshluq.birrapp.util.eventhandler.toSingleEvent
+import pe.joshluq.birrapp.util.resource.ResourceProvider
 import pe.joshluq.birrapp.util.viewmodel.LoaderViewModel
 import javax.inject.Inject
 import javax.inject.Named
@@ -20,6 +18,7 @@ import javax.inject.Named
 @HiltViewModel
 class FindBeerViewModel @Inject constructor(
     @Named("findBeerByNameUseCase") private val findBeerByNameUseCase: UseCase<String, List<Beer>>,
+    private val resourceProvider: ResourceProvider
 ) : LoaderViewModel() {
 
     private val _beerList = MutableLiveData(listOf<Beer>().toSingleEvent())
@@ -43,7 +42,7 @@ class FindBeerViewModel @Inject constructor(
             _isSearchFieldEmpty.value = true.toSingleEvent()
         }
         else -> {
-
+            showErrorMessage(resourceProvider.getString(R.string.error_message))
         }
     }
 }

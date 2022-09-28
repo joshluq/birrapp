@@ -1,10 +1,10 @@
 package pe.joshluq.birrapp.feature.findbeer
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.EditText
 import androidx.core.view.allViews
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
@@ -12,6 +12,7 @@ import pe.joshluq.birrapp.databinding.FragmentFindBeerBinding
 import pe.joshluq.birrapp.domain.model.Beer
 import pe.joshluq.birrapp.util.eventhandler.EventObserver
 import pe.joshluq.birrapp.util.fragment.BaseFragment
+import pe.joshluq.birrapp.util.parcelmodel.mapper.toParcel
 import pe.joshluq.birrapp.util.search.DebouncingQueryTextListener
 
 @AndroidEntryPoint
@@ -63,7 +64,9 @@ class FindBeerFragment : BaseFragment<FragmentFindBeerBinding>() {
     }
 
     private fun onBeerClicked(beer: Beer) {
-        Log.e("jalr", beer.name)
+        val direction =
+            FindBeerFragmentDirections.actionFindBeerFragmentToBeerDetailFragment(beer.toParcel())
+        findNavController().navigate(direction)
     }
 
     private fun onSearchFieldEmpty(isEmpty: Boolean) {

@@ -17,7 +17,7 @@ abstract class LoaderViewModel : ViewModel() {
     private val _errorMessage = MutableLiveData(EMPTY_STRING.toSingleEvent())
     val errorMessage: LiveData<SingleEvent<String>> get() = _errorMessage
 
-    protected fun showDefaultErrorMessage(message: String) {
+    protected fun showErrorMessage(message: String) {
         _errorMessage.value = message.toSingleEvent()
     }
 

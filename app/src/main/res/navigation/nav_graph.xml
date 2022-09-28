@@ -9,6 +9,19 @@
         android:id="@+id/findBeerFragment"
         android:name="pe.joshluq.birrapp.feature.findbeer.FindBeerFragment"
         android:label="FindBeerFragment"
-        tools:layout="@layout/fragment_find_beer" />
+        tools:layout="@layout/fragment_find_beer">
+        <action
+            android:id="@+id/action_findBeerFragment_to_beerDetailFragment"
+            app:destination="@id/beerDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/beerDetailFragment"
+        android:name="pe.joshluq.birrapp.feature.beerdetail.BeerDetailFragment"
+        android:label="BeerDetailFragment"
+        tools:layout="@layout/fragment_beer_detail" >
+        <argument
+            android:name="beer"
+            app:argType="pe.joshluq.birrapp.util.parcelmodel.ParcelBeer" />
+    </fragment>
 
 </navigation>
