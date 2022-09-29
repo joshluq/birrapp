@@ -10,7 +10,7 @@ class BeerResponseMapperKtTest {
     fun testTransformList() {
         // Assemble pre conditions
         val response = listOf(
-            BeerResponse(0, "foo", "bar", "foobar")
+            BeerResponse(0, "foo", "bar", "foobar", 0.0)
         )
 
         // Act
@@ -21,5 +21,6 @@ class BeerResponseMapperKtTest {
         TestCase.assertEquals(result.first().name, response.first().name)
         TestCase.assertEquals(result.first().description, response.first().description)
         TestCase.assertEquals(result.first().imageUrl, response.first().imageUrl)
+        TestCase.assertEquals(result.first().abv, response.first().abv)
     }
 }
